@@ -2,478 +2,549 @@
 <html lang="pt-br" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Argila Branca Adlux: Cabelos Radiantes e Saudáveis</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argila Branca Adlux: Cabelos Radiantes e Saudáveis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
 
-        h1,
-        h2 {
-            font-family: 'Playfair Display', serif;
-        }
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+        }
 
-        .link-offset {
-            scroll-margin-top: 6rem;
-        }
+        .link-offset {
+            scroll-margin-top: 6rem;
+        }
 
-        /* Custom Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            /* Garante que os elementos estejam invisíveis antes da animação */
-        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            /* Garante que os elementos estejam invisíveis antes da animação */
+        }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-        .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-        }
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-        .animate-slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-            opacity: 0;
-        }
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
 
-        /* FAQ Accordion Styling */
-        .faq-item {
-            transition: all 0.4s ease-in-out;
-            border-bottom: 1px solid #e2e8f0;
-            /* cinza claro */
-        }
+        /* FAQ Accordion Styling */
+        .faq-item {
+            transition: all 0.4s ease-in-out;
+            border-bottom: 1px solid #e2e8f0;
+            /* cinza claro */
+        }
 
-        .faq-question {
-            cursor: pointer;
-            user-select: none;
-            padding: 1.25rem 0;
-            /* Padding vertical */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            /* Semibold */
-            color: #374151;
-            /* gray-700 */
-        }
+        .faq-question {
+            cursor: pointer;
+            user-select: none;
+            padding: 1.25rem 0;
+            /* Padding vertical */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            /* Semibold */
+            color: #374151;
+            /* gray-700 */
+        }
 
-        .faq-question:hover {
-            color: #10B981;
-            /* green-500 */
-        }
+        .faq-question:hover {
+            color: #10B981;
+            /* green-500 */
+        }
 
-        .faq-question svg {
-            transition: transform 0.3s ease;
-        }
+        .faq-question svg {
+            transition: transform 0.3s ease;
+        }
 
-        .faq-question.active svg {
-            transform: rotate(45deg);
-        }
+        .faq-question.active svg {
+            transform: rotate(45deg);
+        }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-            padding-bottom: 0;
-            color: #6B7280;
-            /* gray-500 */
-            line-height: 1.6;
-        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+            padding-bottom: 0;
+            color: #6B7280;
+            /* gray-500 */
+            line-height: 1.6;
+        }
 
-        .faq-question.active+.faq-answer {
-            max-height: 150px;
-            /* Ajuste conforme o tamanho máximo da sua resposta */
-            padding-bottom: 1.25rem;
-            /* Padding vertical na resposta aberta */
-        }
-    </style>
+        .faq-question.active+.faq-answer {
+            max-height: 150px;
+            /* Ajuste conforme o tamanho máximo da sua resposta */
+            padding-bottom: 1.25rem;
+            /* Padding vertical na resposta aberta */
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <header
-        class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md py-4 transition-all duration-300">
-        <nav class="container mx-auto flex justify-between items-center px-6 md:px-12">
-            <a href="#hero" class="text-3xl font-bold text-gray-900 leading-none">Adlux</a>
-            <ul class="hidden md:flex space-x-8 items-center">
-                <li><a href="#beneficios"
-                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Benefícios</a>
-                </li>
-                <li><a href="#como-usar"
-                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Como Usar</a>
-                </li>
-                <li><a href="#depoimentos"
-                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Depoimentos</a>
-                </li>
-                <li><a href="#faq"
-                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">FAQ</a></li>
-                <li><a href="#comprar"
-                        class="bg-green-600 text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 transform hover:scale-105 shadow-md">Compre
-                        Agora</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header
+        class="fixed top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-sm shadow-md py-4 transition-all duration-300">
+        <nav class="container mx-auto flex justify-between items-center px-6 md:px-12">
+            <a href="#hero" class="text-3xl font-bold text-gray-900 leading-none">Adlux</a>
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="#beneficios"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Benefícios</a>
+                </li>
+                <li><a href="#como-usar"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Como Usar</a>
+                </li>
+                <li><a href="#depoimentos"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Depoimentos</a>
+                </li>
+                <li><a href="#videos"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Vídeos</a>
+                </li>
+                <li><a href="#faq"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">FAQ</a></li>
+                <li><a href="javascript:void(0);" onclick="showCheckoutPopup()"
+                        class="bg-green-600 text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 transform hover:scale-105 shadow-md">Compre
+                        Agora</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <main>
-        <section id="hero"
-            class="bg-gradient-to-br from-white to-green-50 py-24 md:py-32 flex items-center justify-center min-h-screen">
-            <div
-                class="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 gap-10">
-                <div class="lg:w-1/2 text-center lg:text-left mt-10 lg:mt-0 animate-slide-in-left">
-                    <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-4">Descubra o Segredo
-                        para Cabelos Incríveis.</h1>
-                    <p class="mt-4 text-xl md:text-2xl text-gray-700 leading-relaxed">
-                        Com o Kit Argila Branca Adlux, seus fios recebem hidratação profunda, proteção antioxidante e o
-                        brilho que você sempre sonhou. Transformação garantida desde o primeiro uso.
-                    </p>
-                    <div class="mt-10 flex justify-center lg:justify-start">
-                        <a href="#comprar"
-                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transition duration-300 transform hover:scale-105 text-lg">Quero
-                            Cabelos Deslumbrantes!</a>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 mt-8 lg:mt-0 lg:ml-12 flex justify-center animate-slide-in-right">
-                    <img src="img/kit.jpg" alt="Kit Argila Branca Adlux"
-                        class="rounded-2xl shadow-2xl max-w-full h-auto transform rotate-3 hover:rotate-0 transition duration-500 ease-in-out"
-                        style="max-height: 600px; object-fit: contain;" />
-                </div>
-            </div>
-        </section>
+        <main>
+        <section id="hero"
+            class="bg-gradient-to-br from-white to-green-50 py-24 md:py-32 flex items-center justify-center min-h-screen">
+            <div
+                class="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 gap-10">
+                <div class="lg:w-1/2 text-center lg:text-left mt-10 lg:mt-0 animate-slide-in-left">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-4">Descubra o Segredo
+                        para Cabelos Incríveis.</h1>
+                    <p class="mt-4 text-xl md:text-2xl text-gray-700 leading-relaxed">
+                        Com o Kit Argila Branca Adlux, seus fios recebem hidratação profunda, proteção antioxidante e o
+                        brilho que você sempre sonhou. Transformação garantida desde o primeiro uso.
+                    </p>
+                    <div class="mt-10 flex justify-center lg:justify-start">
+                        <a href="javascript:void(0);" onclick="showCheckoutPopup()"
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transition duration-300 transform hover:scale-105 text-lg">Quero
+                            Cabelos Deslumbrantes!</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-8 lg:mt-0 lg:ml-12 flex justify-center animate-slide-in-right">
+                    <img src="img/kit.jpg" alt="Kit Argila Branca Adlux"
+                        class="rounded-2xl shadow-2xl max-w-full h-auto transform rotate-3 hover:rotate-0 transition duration-500 ease-in-out"
+                        style="max-height: 600px; object-fit: contain;" />
+                </div>
+            </div>
+        </section>
 
-        <section id="beneficios" class="bg-gray-100 py-16 md:py-24 link-offset">
-            <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">Sinta a
-                    Diferença: Cabelos Saudáveis e Radiantes</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
-                        style="animation-delay: 0.1s;">
-                        <h3 class="text-2xl font-bold text-green-700 mb-4">Hidratação Profunda</h3>
-                        <p class="text-gray-700 text-lg">Nutre intensamente a fibra capilar, restaurando a maciez,
-                            elasticidade e vitalidade perdidas no dia a dia.</p>
-                    </div>
-                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
-                        style="animation-delay: 0.3s;">
-                        <h3 class="text-2xl font-bold text-green-700 mb-4">Escudo Antioxidante</h3>
-                        <p class="text-gray-700 text-lg">Combate os radicais livres e o envelhecimento precoce dos fios,
-                            protegendo-os contra agressões externas e mantendo-os jovens.</p>
-                    </div>
-                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
-                        style="animation-delay: 0.5s;">
-                        <h3 class="text-2xl font-bold text-green-700 mb-4">Fórmula da Natureza</h3>
-                        <p class="text-gray-700 text-lg">Enriquecido com Argila Branca, Extrato de Açaí e Guaraná, um
-                            coquetel de vitaminas A, D e E para a saúde capilar.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="beneficios" class="bg-gray-100 py-16 md:py-24 link-offset">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">Sinta a
+                    Diferença: Cabelos Saudáveis e Radiantes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
+                        style="animation-delay: 0.1s;">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Hidratação Profunda</h3>
+                        <p class="text-gray-700 text-lg">Nutre intensamente a fibra capilar, restaurando a maciez,
+                            elasticidade e vitalidade perdidas no dia a dia.</p>
+                    </div>
+                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
+                        style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Escudo Antioxidante</h3>
+                        <p class="text-gray-700 text-lg">Combate os radicais livres e o envelhecimento precoce dos fios,
+                            protegendo-os contra agressões externas e mantendo-os jovens.</p>
+                    </div>
+                    <div class="card bg-white rounded-2xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 animate-fade-in-up"
+                        style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">Fórmula da Natureza</h3>
+                        <p class="text-gray-700 text-lg">Enriquecido com Argila Branca, Extrato de Açaí e Guaraná, um
+                            coquetel de vitaminas A, D e E para a saúde capilar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="como-usar" class="py-16 md:py-24 link-offset bg-white">
-            <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">
-                    Transformação em Poucos Passos</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="animate-slide-in-left">
-                        <img src="img/shampoo.jpg" alt="Shampoo Argila Branca"
-                            class="rounded-2xl shadow-xl w-full max-w-lg mx-auto mb-8 lg:mb-0 transform hover:scale-102 transition duration-300 ease-in-out" />
-                        <div class="mt-8 bg-green-50 rounded-xl p-6 shadow-md">
-                            <h3 class="text-2xl font-bold text-green-800 mb-3">Passo 1: Purificação e Limpeza</h3>
-                            <p class="text-gray-700 text-lg">Aplique o shampoo nos cabelos molhados e massageie
-                                suavemente o couro cabeludo. Enxágue bem e repita para uma limpeza profunda que prepara
-                                os fios para o tratamento.</p>
-                        </div>
-                    </div>
-                    <div class="animate-slide-in-right">
-                        <img src="img/mascara.jpg" alt="Máscara Argila Branca"
-                            class="rounded-2xl shadow-xl w-full max-w-lg mx-auto mb-8 lg:mb-0 transform hover:scale-102 transition duration-300 ease-in-out" />
-                        <div class="mt-8 bg-green-50 rounded-xl p-6 shadow-md">
-                            <h3 class="text-2xl font-bold text-green-800 mb-3">Passo 2: Nutrição e Restauração</h3>
-                            <p class="text-gray-700 text-lg">Após o shampoo, aplique a máscara. Para hidratação diária,
-                                deixe agir por 3 a 5 minutos. Para uma reconstrução intensa, deixe por 5 a 20 minutos.
-                                Sinta seus cabelos macios e revitalizados!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="como-usar" class="py-16 md:py-24 link-offset bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">
+                    Transformação em Poucos Passos</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="animate-slide-in-left">
+                        <img src="img/shampoo.jpg" alt="Shampoo Argila Branca"
+                            class="rounded-2xl shadow-xl w-full max-w-lg mx-auto mb-8 lg:mb-0 transform hover:scale-102 transition duration-300 ease-in-out" />
+                        <div class="mt-8 bg-green-50 rounded-xl p-6 shadow-md">
+                            <h3 class="text-2xl font-bold text-green-800 mb-3">Passo 1: Purificação e Limpeza</h3>
+                            <p class="text-gray-700 text-lg">Aplique o shampoo nos cabelos molhados e massageie
+                                suavemente o couro cabeludo. Enxágue bem e repita para uma limpeza profunda que prepara
+                                os fios para o tratamento.</p>
+                        </div>
+                    </div>
+                    <div class="animate-slide-in-right">
+                        <img src="img/mascara.jpg" alt="Máscara Argila Branca"
+                            class="rounded-2xl shadow-xl w-full max-w-lg mx-auto mb-8 lg:mb-0 transform hover:scale-102 transition duration-300 ease-in-out" />
+                        <div class="mt-8 bg-green-50 rounded-xl p-6 shadow-md">
+                            <h3 class="text-2xl font-bold text-green-800 mb-3">Passo 2: Nutrição e Restauração</h3>
+                            <p class="text-gray-700 text-lg">Após o shampoo, aplique a máscara. Para hidratação diária,
+                                deixe agir por 3 a 5 minutos. Para uma reconstrução intensa, deixe por 5 a 20 minutos.
+                                Sinta seus cabelos macios e revitalizados!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="depoimentos" class="bg-gradient-to-tr from-gray-100 to-green-50 py-16 md:py-24 link-offset">
-            <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">O que
-                    nossas clientes estão dizendo</h2>
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2 flex justify-center animate-slide-in-left">
-                        <img src="img/modelo.png" alt="Kit Argila Branca"
-                            class="max-w-full h-auto" style="max-height: 500px; object-fit: contain;" />
-                    </div>
-                    <div class="lg:w-1/2 space-y-8 animate-slide-in-right">
-                        <div
-                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
-                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
-                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"Meus cabelos estão
-                                incrivelmente macios, com um brilho que eu nunca imaginei ser possível. Sinto-me
-                                renovada e com mais confiança!"</p>
-                            <p class="font-bold text-gray-800 text-right">- Maria S., Tatuí/SP</p>
-                        </div>
-                        <div
-                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
-                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
-                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"A sensação de limpeza e a
-                                leveza que o kit proporciona são únicas. A cada uso, meus fios agradecem, e o resultado
-                                é imediato!"</p>
-                            <p class="font-bold text-gray-800 text-right">- Joana P., Campinas/SP</p>
-                        </div>
-                        <div
-                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
-                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
-                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"Adeus cabelos sem vida! Este
-                                kit realmente hidrata e revitaliza sem pesar, e o cheiro é tão natural e agradável.
-                                Estou apaixonada!"</p>
-                            <p class="font-bold text-gray-800 text-right">- Ana R., Sorocaba/SP</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="depoimentos" class="bg-gradient-to-tr from-gray-100 to-green-50 py-16 md:py-24 link-offset">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">O que
+                    nossas clientes estão dizendo</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 flex justify-center animate-slide-in-left">
+                        <img src="img/modelo.png" alt="Kit Argila Branca"
+                            class="max-w-full h-auto" style="max-height: 500px; object-fit: contain;" />
+                    </div>
+                    <div class="lg:w-1/2 space-y-8 animate-slide-in-right">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
+                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
+                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"Meus cabelos estão
+                                incrivelmente macios, com um brilho que eu nunca imaginei ser possível. Sinto-me
+                                renovada e com mais confiança!"</p>
+                            <p class="font-bold text-gray-800 text-right">- Maria S., Tatuí/SP</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
+                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
+                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"A sensação de limpeza e a
+                                leveza que o kit proporciona são únicas. A cada uso, meus fios agradecem, e o resultado
+                                é imediato!"</p>
+                            <p class="font-bold text-gray-800 text-right">- Joana P., Campinas/SP</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 relative transform transition duration-300 hover:scale-102 hover:shadow-2xl">
+                            <p class="text-green-500 text-5xl absolute top-4 left-6 opacity-20 rotate-12">“</p>
+                            <p class="text-gray-700 italic text-xl leading-relaxed mb-4">"Adeus cabelos sem vida! Este
+                                kit realmente hidrata e revitaliza sem pesar, e o cheiro é tão natural e agradável.
+                                Estou apaixonada!"</p>
+                            <p class="font-bold text-gray-800 text-right">- Ana R., Sorocaba/SP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="faq" class="py-16 md:py-24 link-offset bg-white">
-            <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">Suas
-                    Dúvidas, Nossas Respostas</h2>
-                <div class="max-w-4xl mx-auto space-y-4">
-                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
-                        style="animation-delay: 0.1s;">
-                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
-                            Para quais tipos de cabelo o kit é indicado?
-                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="faq-answer text-gray-600">
-                            O Kit Argila Branca Adlux é versátil e ideal para **todos os tipos de cabelo**, com foco
-                            especial na hidratação e equilíbrio para fios oleosos, ressecados ou danificados.
-                        </div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
-                        style="animation-delay: 0.3s;">
-                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
-                            Quanto tempo dura o kit com uso regular?
-                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="faq-answer text-gray-600">
-                            Com uso regular (2 a 3 vezes por semana), o kit tem uma excelente durabilidade, de **1 a 2
-                            meses**, dependendo do comprimento e volume do cabelo. Um investimento que vale a pena!
-                        </div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
-                        style="animation-delay: 0.5s;">
-                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
-                            O produto é testado em animais?
-                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd" fill-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="faq-answer text-gray-600">
-                            Absolutamente não! Nossos produtos são **100% cruelty-free** e rigorosamente
-                            **dermatologicamente testados**, garantindo a sua segurança e o respeito aos animais.
-                        </div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
-                        style="animation-delay: 0.7s;">
-                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
-                            É indicado para cabelos com progressiva?
-                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd" fill-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="faq-answer text-gray-600">
-                            Para cabelos com progressiva, recomendamos nossas linhas **Magic Pós-Progressiva** ou
-                            **Orgânica**, desenvolvidas especificamente para manter o efeito liso e tratar os fios.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="videos" class="bg-white py-16 md:py-24 link-offset">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">Transforme
+                    Seus Cabelos: A Ciência e a Experiência</h2>
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="w-full lg:w-1/2 rounded-2xl shadow-xl overflow-hidden animate-fade-in-up"
+                        style="animation-delay: 0.1s;">
+                        <iframe class="w-full h-80" src="https://www.youtube.com/embed/7RTeGaXxiVw" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <div class="p-6 bg-gray-50 text-center">
+                            <p class="font-semibold text-lg">A Explicação do Especialista</p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 rounded-2xl shadow-xl overflow-hidden animate-fade-in-up"
+                        style="animation-delay: 0.3s;">
+                        <iframe class="w-full h-80" src="https://www.youtube.com/embed/WVZnEp6mOeM" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <div class="p-6 bg-gray-50 text-center">
+                            <p class="font-semibold text-lg">O Depoimento da Cliente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="comprar" class="py-16 md:py-24 link-offset bg-gradient-to-br from-green-50 to-white">
-            <div class="container mx-auto px-6 md:px-12 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 animate-fade-in-up">Não perca esta
-                    oportunidade!</h2>
-                <p class="text-gray-700 text-xl md:text-2xl mb-12 animate-fade-in-up" style="animation-delay: 0.2s;">
-                    Garanta agora o seu Kit Argila Branca Adlux e inicie sua jornada para cabelos incrivelmente
-                    saudáveis e bonitos.</p>
+        <section id="faq" class="py-16 md:py-24 link-offset bg-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fade-in-up">Suas
+                    Dúvidas, Nossas Respostas</h2>
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
+                        style="animation-delay: 0.1s;">
+                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
+                            Para quais tipos de cabelo o kit é indicado?
+                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer text-gray-600">
+                            O Kit Argila Branca Adlux é versátil e ideal para **todos os tipos de cabelo**, com foco
+                            especial na hidratação e equilíbrio para fios oleosos, ressecados ou danificados.
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
+                        style="animation-delay: 0.3s;">
+                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
+                            Quanto tempo dura o kit com uso regular?
+                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer text-gray-600">
+                            Com uso regular (2 a 3 vezes por semana), o kit tem uma excelente durabilidade, de **1 a 2
+                            meses**, dependendo do comprimento e volume do cabelo. Um investimento que vale a pena!
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
+                        style="animation-delay: 0.5s;">
+                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
+                            O produto é testado em animais?
+                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                    clip-rule="evenodd" fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer text-gray-600">
+                            Absolutamente não! Nossos produtos são **100% cruelty-free** e rigorosamente
+                            **dermatologicamente testados**, garantindo a sua segurança e o respeito aos animais.
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-xl shadow-md p-6 animate-fade-in-up"
+                        style="animation-delay: 0.7s;">
+                        <div class="faq-question flex justify-between items-center text-lg font-semibold text-gray-800">
+                            É indicado para cabelos com progressiva?
+                            <svg class="w-6 h-6 text-green-600 transition-transform duration-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                    clip-rule="evenodd" fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="faq-answer text-gray-600">
+                            Para cabelos com progressiva, recomendamos nossas linhas **Magic Pós-Progressiva** ou
+                            **Orgânica**, desenvolvidas especificamente para manter o efeito liso e tratar os fios.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 max-w-3xl mx-auto border-4 border-green-200 animate-fade-in-up"
-                    style="animation-delay: 0.4s;">
-                    <p class="text-gray-600 text-2xl md:text-3xl font-semibold mb-6">Oferta Exclusiva por Tempo
-                        Limitado:</p>
-                    <p class="text-5xl md:text-6xl font-extrabold text-red-500 mb-2 leading-none">
-                        De <span class="line-through">R$ 210,00</span>
-                    </p>
-                    <p class="text-6xl md:text-7xl font-extrabold text-green-600 mb-6 leading-none">
-                        Por apenas R$ 199,00
-                    </p>
-                    <p class="text-gray-700 text-xl mb-8 font-semibold">Parcele em até **3x sem juros**!</p>
-                    <a href="URL_MERCADO_LIVRE" target="_blank"
-                        class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-5 px-12 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 text-xl tracking-wide uppercase">
-                        Compre Agora e Transforme seus Cabelos!
-                    </a>
-                </div>
+        <section id="comprar" class="py-16 md:py-24 link-offset bg-gradient-to-br from-green-50 to-white">
+            <div class="container mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 animate-fade-in-up">Não perca esta
+                    oportunidade!</h2>
+                <p class="text-gray-700 text-xl md:text-2xl mb-12 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Garanta agora o seu Kit Argila Branca Adlux e inicie sua jornada para cabelos incrivelmente
+                    saudáveis e bonitos.</p>
 
-                <div class="mt-20 animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Entrega Rápida e Segura em São Paulo!</h3>
-                    <p class="text-gray-700 text-xl leading-relaxed max-w-2xl mx-auto">
-                        Para você, em Tatuí e em toda a **São Paulo**, oferecemos **logística própria** para que seu Kit
-                        Argila Branca Adlux chegue **diretamente na sua casa** com agilidade e total segurança. Sem
-                        preocupações!
-                    </p>
-                </div>
-            </div>
-        </section>
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 max-w-3xl mx-auto border-4 border-green-200 animate-fade-in-up"
+                    style="animation-delay: 0.4s;">
+                    <p class="text-gray-600 text-2xl md:text-3xl font-semibold mb-6">Oferta Exclusiva por Tempo
+                        Limitado:</p>
+                    <p class="text-5xl md:text-6xl font-extrabold text-red-500 mb-2 leading-none">
+                        De <span class="line-through">R$ 199,00</span>
+                    </p>
+                    <p class="text-6xl md:text-7xl font-extrabold text-green-600 mb-6 leading-none">
+                        Por apenas R$ 165,00
+                    </p>
+                    <p class="text-gray-700 text-xl mb-8 font-semibold">Parcele em até **3x R$ 55,00 sem juros**!</p>
+                    <a href="javascript:void(0);" onclick="showCheckoutPopup()"
+                        class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-5 px-12 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 text-xl tracking-wide uppercase">
+                        Compre Agora e Transforme seus Cabelos!
+                    </a>
+                </div>
 
-        <section id="contato" class="py-16 bg-gray-800 text-white link-offset">
-            <div class="container mx-auto px-6 md:px-12 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-fade-in-up">Tem Dúvidas? Fale Conosco!</h2>
-                <p class="text-gray-300 text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up"
-                    style="animation-delay: 0.2s;">
-                    Nossa equipe de consultores está pronta para te atender e ajudar a escolher os produtos ideais para
-                    seus cabelos. Clique e converse agora mesmo!
-                </p>
-                <a href="https://wa.me/SEU_NUMERO_DE_WHATSAPP" target="_blank"
-                    class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg animate-fade-in-up"
-                    style="animation-delay: 0.4s;">
-                    <svg class="inline-block w-6 h-6 mr-3 -mt-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12.04 2c-5.59 0-10.13 4.54-10.13 10.13 0 1.95.55 3.86 1.6 5.56l-1.09 3.99 4.1-.99c1.64.9 3.46 1.43 5.37 1.43 5.58 0 10.13-4.54 10.13-10.13.01-5.59-4.54-10.13-10.13-10.13zm.01 16.79c-1.23 0-2.4-.33-3.41-.92l-.24-.14-2.45.6c-.09.02-.19.03-.28.03-.25 0-.4-.09-.55-.24-.15-.15-.24-.4-.24-.65 0-.09.01-.19.03-.28l.6-2.45-.14-.24c-.59-1.01-.92-2.18-.92-3.41 0-4.54 3.7-8.24 8.24-8.24 2.22 0 4.3.87 5.86 2.43 1.56 1.56 2.43 3.64 2.43 5.86-.01 4.54-3.71 8.23-8.25 8.23zm3.17-5.06c-.17-.08-.98-.49-1.13-.55-.15-.07-.26-.08-.37.08-.12.16-.46.55-.56.66-.1.1-.2.12-.37.03-.17-.08-.71-.26-1.35-.83-.49-.44-.82-1.04-.92-1.21-.1-.17 0-.16.09-.25.08-.08.17-.18.25-.26.08-.09.11-.17.16-.29.05-.12.02-.23-.01-.32-.03-.09-.34-.81-.46-1.1s-.23-.37-.32-.52c-.09-.15-.02-.13.06-.13.06 0 .15-.01.22-.01.07 0 .15-.01.24-.01.12 0 .15-.04.22-.12.07-.07.24-.17.37-.23.13-.07.26-.14.37-.14.12 0 .23.08.31.17s.12.24.08.37c-.04.13-.15.26-.23.37-.08.12-.17.2-.26.29-.09.09-.18.17-.23.23-.05.06-.11.12-.05.21.06.09.28.45.33.55.05.1.09.18.14.23.05.05.12.08.17.08.05 0 .32-.02.43-.09.11-.07.27-.16.4-.23.13-.07.26-.1.32-.1s.2.04.28.1c.08.06.33.22.38.26.05.04.09.09.05.17-.04.08-.17.22-.19.24-.02.02-.04.04-.06.06z" />
-                    </svg>
-                    Falar com um Consultor
-                </a>
-            </div>
-        </section>
-    </main>
+                <div class="mt-20 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Entrega Rápida e Segura em São Paulo!</h3>
+                    <p class="text-gray-700 text-xl leading-relaxed max-w-2xl mx-auto">
+                        Para você, em Tatuí e em toda a **São Paulo**, oferecemos **logística própria** para que seu Kit
+                        Argila Branca Adlux chegue **diretamente na sua casa** com agilidade e total segurança. Sem
+                        preocupações!
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p>&copy; 2023 Argila Branca Adlux. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        <section id="contato" class="py-16 bg-gray-800 text-white link-offset">
+            <div class="container mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-fade-in-up">Tem Dúvidas? Fale Conosco!</h2>
+                <p class="text-gray-300 text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up"
+                    style="animation-delay: 0.2s;">
+                    Nossa equipe de consultores está pronta para te atender e ajudar a escolher os produtos ideais para
+                    seus cabelos. Clique e converse agora mesmo!
+                </p>
+                <a href="https://wa.me/5511951236930" target="_blank"
+                    class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg animate-fade-in-up"
+                    style="animation-delay: 0.4s;">
+                    <svg class="inline-block w-6 h-6 mr-3 -mt-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.04 2c-5.59 0-10.13 4.54-10.13 10.13 0 1.95.55 3.86 1.6 5.56l-1.09 3.99 4.1-.99c1.64.9 3.46 1.43 5.37 1.43 5.58 0 10.13-4.54 10.13-10.13.01-5.59-4.54-10.13-10.13-10.13zm.01 16.79c-1.23 0-2.4-.33-3.41-.92l-.24-.14-2.45.6c-.09.02-.19.03-.28.03-.25 0-.4-.09-.55-.24-.15-.15-.24-.4-.24-.65 0-.09.01-.19.03-.28l.6-2.45-.14-.24c-.59-1.01-.92-2.18-.92-3.41 0-4.54 3.7-8.24 8.24-8.24 2.22 0 4.3.87 5.86 2.43 1.56 1.56 2.43 3.64 2.43 5.86-.01 4.54-3.71 8.23-8.25 8.23zm3.17-5.06c-.17-.08-.98-.49-1.13-.55-.15-.07-.26-.08-.37.08-.12.16-.46.55-.56.66-.1.1-.2.12-.37.03-.17-.08-.71-.26-1.35-.83-.49-.44-.82-1.04-.92-1.21-.1-.17 0-.16.09-.25.08-.08.17-.18.25-.26.08-.09.11-.17.16-.29.05-.12.02-.23-.01-.32-.03-.09-.34-.81-.46-1.1s-.23-.37-.32-.52c-.09-.15-.02-.13.06-.13.06 0 .15-.01.22-.01.07 0 .15-.01.24-.01.12 0 .15-.04.22-.12.07-.07.24-.17.37-.23.13-.07.26-.14.37-.14.12 0 .23.08.31.17s.12.24.08.37c-.04.13-.15.26-.23.37-.08.12-.17.2-.26.29-.09.09-.18.17-.23.23-.05.06-.11.12-.05.21.06.09.28.45.33.55.05.1.09.18.14.23.05.05.12.08.17.08.05 0 .32-.02.43-.09.11-.07.27-.16.4-.23.13-.07.26-.1.32-.1s.2.04.28.1c.08.06.33.22.38.26.05.04.09.09.05.17-.04.08-.17.22-.19.24-.02.02-.04.04-.06.06z" />
+                    </svg>
+                    Falar com um Consultor
+                </a>
+            </div>
+        </section>
+    </main>
 
-    <script>
-        // Intersection Observer para animações de entrada
-        const animateOnScroll = (selector, animationClass, threshold = 0.3) => {
-            const elements = document.querySelectorAll(selector);
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add(animationClass);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: threshold });
-            elements.forEach(el => observer.observe(el));
-        };
+        <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2023 Argila Branca Adlux. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-        // Aplica as animações
-        animateOnScroll('#hero .animate-slide-in-left', 'animate-slide-in-left', 0.1);
-        animateOnScroll('#hero .animate-slide-in-right', 'animate-slide-in-right', 0.1);
-        animateOnScroll('#beneficios h2', 'animate-fade-in-up');
-        animateOnScroll('#beneficios .card', 'animate-fade-in-up', 0.5);
-        animateOnScroll('#como-usar h2', 'animate-fade-in-up');
-        animateOnScroll('#como-usar .animate-slide-in-left', 'animate-slide-in-left', 0.3);
-        animateOnScroll('#como-usar .animate-slide-in-right', 'animate-slide-in-right', 0.3);
-        animateOnScroll('#depoimentos h2', 'animate-fade-in-up');
-        animateOnScroll('#depoimentos .animate-slide-in-left', 'animate-slide-in-left', 0.2);
-        animateOnScroll('#depoimentos .animate-slide-in-right', 'animate-slide-in-right', 0.2);
-        animateOnScroll('#faq h2', 'animate-fade-in-up');
-        animateOnScroll('#faq .faq-item', 'animate-fade-in-up', 0.5);
-        animateOnScroll('#comprar h2', 'animate-fade-in-up');
-        animateOnScroll('#comprar p', 'animate-fade-in-up', 0.2);
-        animateOnScroll('#comprar .bg-white', 'animate-fade-in-up', 0.4);
-        animateOnScroll('#comprar .mt-20', 'animate-fade-in-up', 0.6);
-        animateOnScroll('#contato h2, #contato p, #contato a', 'animate-fade-in-up');
+        <div id="checkout-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4">
+        <div class="bg-white rounded-lg p-6 max-w-xl w-full relative">
+            <button onclick="closeCheckoutPopup()"
+                class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 transition-colors duration-200">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Finalizar Pagamento</h3>
+            <div class="w-full" style="height: 60vh;">
+                <iframe id="checkout-iframe" class="w-full h-full border-0 rounded-lg"></iframe>
+            </div>
+        </div>
+    </div>
+
+        <script>
+        // Intersection Observer para animações de entrada
+        const animateOnScroll = (selector, animationClass, threshold = 0.3) => {
+            const elements = document.querySelectorAll(selector);
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(animationClass);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: threshold });
+            elements.forEach(el => observer.observe(el));
+        };
+
+        // Aplica as animações
+        animateOnScroll('#hero .animate-slide-in-left', 'animate-slide-in-left', 0.1);
+        animateOnScroll('#hero .animate-slide-in-right', 'animate-slide-in-right', 0.1);
+        animateOnScroll('#beneficios h2', 'animate-fade-in-up');
+        animateOnScroll('#beneficios .card', 'animate-fade-in-up', 0.5);
+        animateOnScroll('#como-usar h2', 'animate-fade-in-up');
+        animateOnScroll('#como-usar .animate-slide-in-left', 'animate-slide-in-left', 0.3);
+        animateOnScroll('#como-usar .animate-slide-in-right', 'animate-slide-in-right', 0.3);
+        animateOnScroll('#depoimentos h2', 'animate-fade-in-up');
+        animateOnScroll('#depoimentos .animate-slide-in-left', 'animate-slide-in-left', 0.2);
+        animateOnScroll('#depoimentos .animate-slide-in-right', 'animate-slide-in-right', 0.2);
+        animateOnScroll('#videos h2', 'animate-fade-in-up');
+        animateOnScroll('#videos .rounded-2xl', 'animate-fade-in-up', 0.3);
+        animateOnScroll('#faq h2', 'animate-fade-in-up');
+        animateOnScroll('#faq .faq-item', 'animate-fade-in-up', 0.5);
+        animateOnScroll('#comprar h2', 'animate-fade-in-up');
+        animateOnScroll('#comprar p', 'animate-fade-in-up', 0.2);
+        animateOnScroll('#comprar .bg-white', 'animate-fade-in-up', 0.4);
+        animateOnScroll('#comprar .mt-20', 'animate-fade-in-up', 0.6);
+        animateOnScroll('#contato h2, #contato p, #contato a', 'animate-fade-in-up');
 
 
-        // Acordeão do FAQ
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                // Fecha qualquer outra pergunta aberta
-                faqQuestions.forEach(otherQuestion => {
-                    if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
-                        otherQuestion.classList.remove('active');
-                    }
-                });
+        // Acordeão do FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Fecha qualquer outra pergunta aberta
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
+                        otherQuestion.classList.remove('active');
+                    }
+                });
 
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('svg');
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('svg');
 
-                const isExpanded = question.classList.toggle('active');
-                if (isExpanded) {
-                    icon.style.transform = 'rotate(45deg)';
-                } else {
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
+                const isExpanded = question.classList.toggle('active');
+                if (isExpanded) {
+                    icon.style.transform = 'rotate(45deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
 
-    </script>
+        // Funções para o popup de pagamento
+        const checkoutPopup = document.getElementById('checkout-popup');
+        const checkoutIframe = document.getElementById('checkout-iframe');
+        const paymentLink = "https://pag.ae/7__dAA1CM";
+
+        function showCheckoutPopup() {
+            checkoutIframe.src = paymentLink;
+            checkoutPopup.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evita scroll na página de fundo
+        }
+
+        function closeCheckoutPopup() {
+            checkoutPopup.classList.add('hidden');
+            checkoutIframe.src = ''; // Limpa a URL para o vídeo não continuar tocando
+            document.body.style.overflow = ''; // Restaura o scroll
+        }
+
+        // Fecha o popup se clicar fora dele
+        window.addEventListener('click', (event) => {
+            if (event.target === checkoutPopup) {
+                closeCheckoutPopup();
+            }
+        });
+    </script>
 </body>
 
 </html>
