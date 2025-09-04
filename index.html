@@ -130,6 +130,51 @@
             padding-bottom: 1.25rem;
             /* Padding vertical na resposta aberta */
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+            text-decoration: none;
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 
@@ -371,7 +416,7 @@
                         Por apenas R$ 165,00
                     </p>
                     <p class="text-gray-700 text-xl mb-8 font-semibold">Parcele em até **3x R$ 55,00 sem juros**!</p>
-                    <a href="https://pag.ae/7__dAA1CM" target="_blank"
+                    <a href="#" id="buyNowButton"
                         class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-5 px-12 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 text-xl tracking-wide uppercase">
                         Compre Agora e Transforme seus Cabelos!!!
                     </a>
@@ -384,6 +429,32 @@
                         Argila Branca Adlux chegue **diretamente na sua casa** com agilidade e total segurança. Sem
                         preocupações!
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="videos" class="py-16 md:py-24 bg-gray-100 link-offset">
+            <div class="container mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16 animate-fade-in-up">Veja o Kit Adlux em Ação!</h2>
+                <div class="flex flex-col lg:flex-row justify-center items-start gap-10">
+                    <div class="w-full lg:w-1/2 animate-slide-in-left" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Técnico Explicando o Produto</h3>
+                        <div class="relative w-full overflow-hidden rounded-xl shadow-xl" style="padding-top: 56.25%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/CgQRMlEwo70" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 animate-slide-in-right" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Cliente Usando o Produto</h3>
+                        <div class="relative w-full overflow-hidden rounded-xl shadow-xl" style="padding-top: 56.25%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/WVZnEp6mOeM" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -414,6 +485,21 @@
             <p>&copy; 2023 Argila Branca Adlux. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Link de Pagamento</h3>
+            <p class="text-lg text-gray-700 mb-6">
+                Clique no botão abaixo para ser redirecionado ao link de pagamento.
+            </p>
+            <a id="paymentLink" href="#" target="_blank"
+                class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Abrir Link de Pagamento
+            </a>
+        </div>
+    </div>
+
 
     <script>
         // Intersection Observer para animações de entrada
@@ -447,6 +533,7 @@
         animateOnScroll('#comprar p', 'animate-fade-in-up', 0.2);
         animateOnScroll('#comprar .bg-white', 'animate-fade-in-up', 0.4);
         animateOnScroll('#comprar .mt-20', 'animate-fade-in-up', 0.6);
+        animateOnScroll('#videos h2, #videos .w-full', 'animate-fade-in-up');
         animateOnScroll('#contato h2, #contato p, #contato a', 'animate-fade-in-up');
 
 
@@ -472,6 +559,32 @@
                 }
             });
         });
+
+        // Funcionalidade do Modal - Adicionado aqui
+        const modal = document.getElementById('paymentModal');
+        const btn = document.getElementById('buyNowButton');
+        const span = document.getElementsByClassName('close-button')[0];
+        const paymentLink = document.getElementById('paymentLink');
+
+        // Quando o usuário clica no botão, abre o modal
+        btn.onclick = function (e) {
+            e.preventDefault(); // Impede o comportamento padrão do link
+            const paymentURL = "https://pag.ae/7__dAA1CM";
+            paymentLink.href = paymentURL;
+            modal.style.display = 'flex';
+        };
+
+        // Quando o usuário clica no (x), fecha o modal
+        span.onclick = function () {
+            modal.style.display = 'none';
+        };
+
+        // Quando o usuário clica em qualquer lugar fora do modal, fecha o modal
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
 
     </script>
 </body>
