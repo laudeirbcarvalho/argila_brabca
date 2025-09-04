@@ -1,28 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kit Argila Branca Adlux | Cabelos Radiantes e Saudáveis</title>
 
-    <!-- SEO -->
     <meta name="description"
-        content="Descubra o segredo para cabelos radiantes com o Kit Argila Branca Adlux. Hidratação profunda, proteção antioxidante e brilho desde o primeiro uso.">
+        content="Transforme seus cabelos com o Kit Argila Branca Adlux. Hidratação profunda, proteção antioxidante e brilho intenso. Descubra o poder da argila branca para fios saudáveis e radiantes.">
     <meta name="keywords"
-        content="argila branca adlux, hidratação capilar, kit para cabelos, tratamento capilar, cabelo saudável">
+        content="argila branca adlux, kit argila branca, hidratação capilar, tratamento capilar, cabelo saudável, adlux cosméticos, kit para cabelos, produtos para cabelo">
     <meta name="author" content="Adlux Cosméticos">
+    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph (Facebook / WhatsApp) -->
     <meta property="og:title" content="Kit Argila Branca Adlux | Cabelos Radiantes e Saudáveis">
     <meta property="og:description"
-        content="Com o Kit Argila Branca Adlux seus fios recebem hidratação profunda, proteção antioxidante e brilho incrível. Transformação garantida desde o primeiro uso.">
+        content="Com o Kit Argila Branca Adlux, seus cabelos recebem hidratação profunda, proteção antioxidante e brilho incrível. Transformação garantida desde o primeiro uso.">
     <meta property="og:image" content="https://argilabranca.adluxsp.com.br/img/kit.jpg">
     <meta property="og:url" content="https://argilabranca.adluxsp.com.br/">
     <meta property="og:type" content="product">
+    <meta property="og:locale" content="pt_BR">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kit Argila Branca Adlux | Cabelos Radiantes e Saudáveis">
     <meta name="twitter:description"
-        content="Garanta já seu Kit Argila Branca Adlux e transforme seus cabelos. Compre online com segurança.">
+        content="Garanta já seu Kit Argila Branca Adlux e transforme seus cabelos. Compre online com segurança e entrega rápida em São Paulo.">
     <meta name="twitter:image" content="https://argilabranca.adluxsp.com.br/img/kit.jpg">
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -47,7 +49,7 @@
             scroll-margin-top: 6rem;
         }
 
-        /* Custom Animations */
+        /* Animações */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -99,7 +101,7 @@
             opacity: 0;
         }
 
-        /* FAQ Accordion Styling */
+        /* Acordeão do FAQ */
         .faq-item {
             transition: all 0.4s ease-in-out;
             border-bottom: 1px solid #e2e8f0;
@@ -141,6 +143,13 @@
             max-height: 150px;
             padding-bottom: 1.25rem;
         }
+
+        /* Menu Mobile */
+        .mobile-menu-active {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            display: flex !important;
+        }
     </style>
 </head>
 
@@ -167,7 +176,7 @@
                         Agora</a></li>
             </ul>
 
-            <button id="menu-button" class="md:hidden text-gray-800 focus:outline-none">
+            <button id="menu-button" class="md:hidden text-gray-800 focus:outline-none" aria-label="Abrir menu principal">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
@@ -287,7 +296,7 @@
                     nossas clientes estão dizendo</h2>
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2 flex justify-center animate-slide-in-left">
-                        <img src="img/modelo.png" alt="Kit Argila Branca" class="max-w-full h-auto"
+                        <img src="img/modelo.png" alt="Mulher feliz com o Kit Argila Branca Adlux" class="max-w-full h-auto"
                             style="max-height: 500px; object-fit: contain;" />
                     </div>
                     <div class="lg:w-1/2 space-y-8 animate-slide-in-right">
@@ -365,7 +374,7 @@
                                 viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div class="faq-answer text-gray-600">
@@ -381,7 +390,7 @@
                                 viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div class="faq-answer text-gray-600">
@@ -433,30 +442,31 @@
             <div class="container mx-auto px-6 md:px-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16 animate-fade-in-up">Veja o Kit Adlux em
                     Ação!</h2>
-                <div class="flex flex-col lg:flex-row justify-center items-start gap-10">
-                    <div class="w-full lg:w-1/2 animate-slide-in-left" style="animation-delay: 0.2s;">
+                <div class="flex flex-col items-center">
+                    <div class="w-full max-w-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Técnico Explicando o Produto</h3>
                         <div class="relative w-full overflow-hidden rounded-xl shadow-xl" style="padding-top: 56.25%;">
-
-
                             <iframe class="absolute top-0 left-0 w-full h-full"
                                 src="https://www.youtube.com/embed/6JVcGjZkQoU?si=2GjSiPAzVnE2oHCF"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-                        
-
-
                         </div>
                     </div>
-                     
                 </div>
+            </div>
         </section>
 
-
     </main>
+    
+    <a href="https://api.whatsapp.com/send?phone=5515998188188&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Kit%20Argila%20Branca%20Adlux!"
+        class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg transform hover:scale-110 transition-transform duration-300"
+        aria-label="Fale conosco pelo WhatsApp" target="_blank">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.94.55 3.82 1.62 5.48L2.09 22.02l4.81-1.27c1.55.85 3.29 1.34 5.14 1.34 5.45 0 9.9-4.46 9.9-9.92.01-5.46-4.44-9.91-9.89-9.91zm0 18.02c-1.74 0-3.37-.47-4.81-1.3l-.34-.19-3.52.92.93-3.44-.22-.35c-.95-1.57-1.46-3.38-1.46-5.26 0-4.54 3.7-8.24 8.24-8.24 2.22 0 4.3.87 5.86 2.44s2.44 3.65 2.44 5.86c.01 4.54-3.69 8.24-8.23 8.24zm3.17-5.02c-.17-.09-1.03-.51-1.2-.57-.17-.09-.3-.09-.43.09-.13.17-.48.57-.59.69-.13.12-.26.13-.48.07-.22-.05-1.04-.38-1.98-1.22-.73-.64-1.23-1.44-1.37-1.68-.13-.24-.01-.27.09-.27h.3c.12 0 .3-.05.43-.22.13-.17.43-1.03.55-1.24.13-.17.06-.13.04-.26-.06-.12-.48-1.22-.66-1.67-.17-.43-.34-.37-.48-.37-.13 0-.29-.02-.43-.02s-.36.06-.55.24c-.17.2-.67.66-.67 1.61 0 .95.69 1.86.79 2.01.12.17 1.35 2.06 3.27 2.87.49.23.88.35 1.18.44.47.14.6.1.8-.02.2-.12.87-.37 1-.74.13-.37.13-.67.09-.74-.05-.09-.17-.13-.3-.19z" />
+        </svg>
+    </a>
 
     <footer class="bg-gray-900 text-gray-400 py-8 text-center">
         <div class="container mx-auto px-6">
@@ -475,7 +485,9 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: threshold });
+            }, {
+                threshold: threshold
+            });
             elements.forEach(el => observer.observe(el));
         };
 
@@ -497,24 +509,29 @@
         animateOnScroll('#comprar .bg-white', 'animate-fade-in-up', 0.4);
         animateOnScroll('#comprar .mt-20', 'animate-fade-in-up', 0.6);
         animateOnScroll('#videos h2, #videos .w-full', 'animate-fade-in-up');
-        animateOnScroll('#contato h2, #contato p, #contato a', 'animate-fade-in-up');
 
         // Acordeão do FAQ
         const faqQuestions = document.querySelectorAll('.faq-question');
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
+                const isActive = question.classList.contains('active');
+                
+                // Fecha todos os outros itens
                 faqQuestions.forEach(otherQuestion => {
-                    if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
-                        otherQuestion.classList.remove('active');
-                    }
+                    otherQuestion.classList.remove('active');
+                    const otherAnswer = otherQuestion.nextElementSibling;
+                    otherAnswer.style.maxHeight = '0';
+                    otherAnswer.style.paddingBottom = '0';
+                    otherQuestion.querySelector('svg').style.transform = 'rotate(0deg)';
                 });
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('svg');
-                const isExpanded = question.classList.toggle('active');
-                if (isExpanded) {
-                    icon.style.transform = 'rotate(45deg)';
-                } else {
-                    icon.style.transform = 'rotate(0deg)';
+
+                // Se o item clicado não estava ativo, abre
+                if (!isActive) {
+                    question.classList.add('active');
+                    const answer = question.nextElementSibling;
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.paddingBottom = '1.25rem';
+                    question.querySelector('svg').style.transform = 'rotate(45deg)';
                 }
             });
         });
@@ -522,29 +539,19 @@
         // Funcionalidade do Menu Hambúrguer
         const menuButton = document.getElementById('menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
 
-        menuButton.addEventListener('click', () => {
-            const isMenuOpen = mobileMenu.classList.contains('active');
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('active');
-                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
-                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'hidden');
-            } else {
-                mobileMenu.classList.add('active');
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('opacity-0', '-translate-y-full');
-                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
-            }
-        });
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('mobile-menu-active');
+            menuButton.setAttribute('aria-expanded', mobileMenu.classList.contains('mobile-menu-active'));
+        };
+
+        menuButton.addEventListener('click', toggleMenu);
 
         // Fecha o menu mobile quando um link é clicado
-        mobileMenu.querySelectorAll('a').forEach(link => {
+        mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
-                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'hidden');
+                toggleMenu();
             });
         });
     </script>
