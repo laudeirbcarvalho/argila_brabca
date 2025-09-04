@@ -121,70 +121,16 @@
             max-height: 150px;
             padding-bottom: 1.25rem;
         }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 700px;
-            height: 90%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-content iframe {
-            flex-grow: 1;
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 32px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: #333;
-            text-decoration: none;
-            transform: rotate(90deg);
-        }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <header
-        class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm shadow-md py-4 transition-all duration-300">
+        class="fixed top-0 left-0 w-full z-50 bg-white shadow-md py-4 transition-all duration-300">
         <nav class="container mx-auto flex justify-between items-center px-6 md:px-12">
             <a href="#hero" class="text-3xl font-bold text-gray-900 leading-none">Adlux</a>
+
             <ul class="hidden md:flex space-x-8 items-center">
                 <li><a href="#beneficios"
                         class="text-gray-600 hover:text-green-600 font-semibold transition duration-300">Benefícios</a>
@@ -201,7 +147,35 @@
                         class="bg-green-600 text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 transform hover:scale-105 shadow-md">Compre
                         Agora</a></li>
             </ul>
+
+            <button id="menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </nav>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 transition-all duration-300 transform -translate-y-full opacity-0">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#beneficios"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300 text-lg">Benefícios</a>
+                </li>
+                <li><a href="#como-usar"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300 text-lg">Como Usar</a>
+                </li>
+                <li><a href="#depoimentos"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300 text-lg">Depoimentos</a>
+                </li>
+                <li><a href="#faq"
+                        class="text-gray-600 hover:text-green-600 font-semibold transition duration-300 text-lg">FAQ</a></li>
+                <li><a href="#comprar"
+                        class="bg-green-600 text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 text-lg shadow-md">Compre
+                        Agora</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -417,7 +391,7 @@
                         Por apenas R$ 165,00
                     </p>
                     <p class="text-gray-700 text-xl mb-8 font-semibold">Parcele em até **3x R$ 55,00 sem juros**!</p>
-                    <a href="#" id="buyNowButton"
+                    <a href="https://pag.ae/7__dAA1CM" target="_blank"
                         class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-5 px-12 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 text-xl tracking-wide uppercase">
                         Compre Agora e Transforme seus Cabelos!!!
                     </a>
@@ -487,17 +461,6 @@
         </div>
     </footer>
 
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Finalizar Compra</h3>
-            <p class="text-lg text-gray-700 mb-6">
-                Você será redirecionado para a página de pagamento para finalizar sua compra com segurança.
-            </p>
-            <iframe id="paymentIframe" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
     <script>
         // Intersection Observer para animações de entrada
         const animateOnScroll = (selector, animationClass, threshold = 0.3) => {
@@ -533,7 +496,6 @@
         animateOnScroll('#videos h2, #videos .w-full', 'animate-fade-in-up');
         animateOnScroll('#contato h2, #contato p, #contato a', 'animate-fade-in-up');
 
-
         // Acordeão do FAQ
         const faqQuestions = document.querySelectorAll('.faq-question');
         faqQuestions.forEach(question => {
@@ -543,10 +505,8 @@
                         otherQuestion.classList.remove('active');
                     }
                 });
-
                 const answer = question.nextElementSibling;
                 const icon = question.querySelector('svg');
-
                 const isExpanded = question.classList.toggle('active');
                 if (isExpanded) {
                     icon.style.transform = 'rotate(45deg)';
@@ -556,34 +516,34 @@
             });
         });
 
-        // Funcionalidade do Modal com Iframe
-        const modal = document.getElementById('paymentModal');
-        const btn = document.getElementById('buyNowButton');
-        const span = document.getElementsByClassName('close-button')[0];
-        const paymentIframe = document.getElementById('paymentIframe');
-        const paymentURL = "https://sacola.pagbank.com.br/a4788d59-63b8-42c3-9123-bf694b941384";
+        // Funcionalidade do Menu Hambúrguer
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        // Quando o usuário clica no botão, abre o modal e carrega o iframe
-        btn.onclick = function (e) {
-            e.preventDefault();
-            paymentIframe.src = paymentURL;
-            modal.style.display = 'flex';
-        };
-
-        // Quando o usuário clica no (x), fecha o modal e limpa o src do iframe
-        span.onclick = function () {
-            modal.style.display = 'none';
-            paymentIframe.src = "";
-        };
-
-        // Quando o usuário clica em qualquer lugar fora do modal, fecha o modal e limpa o src do iframe
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                paymentIframe.src = "";
+        menuButton.addEventListener('click', () => {
+            const isMenuOpen = mobileMenu.classList.contains('active');
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'hidden');
+            } else {
+                mobileMenu.classList.add('active');
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', '-translate-y-full');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
             }
-        };
+        });
 
+        // Fecha o menu mobile quando um link é clicado
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'hidden');
+            });
+        });
     </script>
 </body>
 
